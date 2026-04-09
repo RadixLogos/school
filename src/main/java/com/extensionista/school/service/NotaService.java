@@ -4,6 +4,7 @@ import com.extensionista.school.dtos.SituacaoAlunoDTO;
 import com.extensionista.school.entities.Nota;
 import com.extensionista.school.repositories.NotaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,9 +17,12 @@ public class NotaService {
         this.repository = repository;
     }
 
+    @Transactional
     public Nota salvar(Nota n) { return repository.save(n); }
+    @Transactional(readOnly = true)
     public List<Nota> listar() { return repository.findAll(); }
 
+    @Transactional(readOnly = true)
     public List<SituacaoAlunoDTO> mediasPorAluno(Long alunoId) {
         return repository.calcularMediaPorMateria(alunoId);
     }

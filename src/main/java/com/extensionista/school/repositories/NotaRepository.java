@@ -12,7 +12,7 @@ import java.util.List;
 public interface NotaRepository extends JpaRepository<Nota, Long> {
     @Query("""
 SELECT new com.extensionista.school.dtos.SituacaoAlunoDTO(
-    n.materia.nome, AVG(n.valor)
+    n.materia.nome, AVG(n.valor), n.aluno.nome
 )
 FROM Nota n
 WHERE n.aluno.id = :alunoId

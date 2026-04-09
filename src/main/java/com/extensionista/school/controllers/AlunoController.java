@@ -37,6 +37,11 @@ public class AlunoController {
     // ENDPOINT SITUAÇÃO DO ALUNO
     @GetMapping("/{id}/situacao")
     public List<SituacaoAlunoDTO> situacao(@PathVariable Long id) {
+        try{
         return notaService.mediasPorAluno(id);
+        }catch (Exception e){
+           e.printStackTrace();
+            return null;
+        }
     }
 }
