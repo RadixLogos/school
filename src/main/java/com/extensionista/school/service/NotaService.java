@@ -6,6 +6,7 @@ import com.extensionista.school.repositories.NotaRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,6 +25,15 @@ public class NotaService {
 
     @Transactional(readOnly = true)
     public List<SituacaoAlunoDTO> mediasPorAluno(Long alunoId) {
-        return repository.calcularMediaPorMateria(alunoId);
+        List<SituacaoAlunoDTO> listaSituacaoAlunoDTOS = new ArrayList<>();
+        listaSituacaoAlunoDTOS = repository.calcularMediaPorMateria(alunoId);;
+        listaSituacaoAlunoDTOS.forEach(a ->{
+            if(a.getMedia() <= 6){
+                a.setSituacao("Reprovado");
+            }else {
+                a.setSituacao("Aprovado");
+            }
+        });
+        return listaSituacaoAlunoDTOS;
     }
 }
