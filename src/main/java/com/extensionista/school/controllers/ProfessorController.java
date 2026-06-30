@@ -1,5 +1,6 @@
 package com.extensionista.school.controllers;
 
+import com.extensionista.school.dtos.ProfessorResponseDTO;
 import com.extensionista.school.entities.Professor;
 import com.extensionista.school.service.ProfessorService;
 import org.springframework.web.bind.annotation.*;
@@ -20,5 +21,5 @@ public class ProfessorController {
     public Professor criar(@RequestBody Professor p) { return service.salvar(p); }
 
     @GetMapping
-    public List<Professor> listar() { return service.listar(); }
+    public List<ProfessorResponseDTO> listar() { return service.listar(); }
 }
