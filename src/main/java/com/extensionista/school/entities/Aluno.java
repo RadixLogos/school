@@ -17,7 +17,9 @@ public class Aluno {
     @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
     private List<Nota> notas = new ArrayList<>();
 
-    // getters e setters
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Long getId() {
         return id;
@@ -42,4 +44,14 @@ public class Aluno {
     public void setNotas(List<Nota> notas) {
         this.notas = notas;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }
+

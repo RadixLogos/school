@@ -17,6 +17,10 @@ public class Professor {
     @OneToMany(mappedBy = "professor")
     private List<Materia> materias = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     public Professor(Long id, String nome) {
         this.id = id;
         this.nome = nome;
@@ -47,5 +51,13 @@ public class Professor {
 
     public void setMaterias(List<Materia> materias) {
         this.materias = materias;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
