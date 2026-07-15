@@ -10,7 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SchoolApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SchoolApplication.class, args);}
+		SpringApplication.run(SchoolApplication.class, args);
+	}
 
 
 }

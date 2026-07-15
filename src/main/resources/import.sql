@@ -1,4 +1,5 @@
 INSERT INTO tb_user(id,username,password,role,enabled) values (1,'joaozito','$2a$10$E3f9EiQsmTLRhkqQ16aXAehxXdyyqLXpfOU6mrqCt7EEy6UGDV206','ROLE_PROFESSOR', true);
+INSERT INTO tb_user(id,username,password,role,enabled) values (2,'pedrito','$2a$10$t7hdNZRDTsU6OOC46y3DO.XA7TR36b1EyGd7qKSjQvlCP5kCXoW6m','ROLE_ALUNO', true);
 
 INSERT INTO PROFESSOR (id, nome) VALUES (1, 'João');
 INSERT INTO PROFESSOR (id, nome) VALUES (2, 'Maria');
@@ -6,7 +7,7 @@ INSERT INTO PROFESSOR (id, nome) VALUES (2, 'Maria');
 INSERT INTO MATERIA (id, nome, professor_id) VALUES (1, 'Matemática', 1);
 INSERT INTO MATERIA (id, nome, professor_id) VALUES (2, 'História', 2);
 
-INSERT INTO ALUNO (id, nome) VALUES (1, 'Carlos');
+INSERT INTO ALUNO (id, nome,user_id) VALUES (1, 'Pedro',2);
 INSERT INTO ALUNO (id, nome) VALUES (2, 'Ana');
 
 INSERT INTO NOTA (id, valor, aluno_id, materia_id) VALUES (1, 8.0, 1, 1);
